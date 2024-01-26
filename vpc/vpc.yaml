@@ -1,0 +1,9 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: DefaultVPC
+metadata:
+  name: crossplane-vpc-1
+spec:
+  forProvider:
+    region: us-east-1
+    tags:
+      ManagedBy: Crossplane
