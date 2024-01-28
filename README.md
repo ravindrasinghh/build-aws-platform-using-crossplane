@@ -7,7 +7,7 @@ Add and install the Crossplane repository using the following Helm commands:
 helm repo add crossplane-stable https://charts.crossplane.io/stable
 helm install crossplane --namespace crossplane-system --create-namespace --version 1.14.5 crossplane-stable/crossplane
 ```
-
+You can also customize the crossplane helm chart: [https://docs.crossplane.io/latest/software/install/#customize-the-crossplane-helm-chart]
 **Step 2:** Provide IAM Keys
 Specify the file path containing AWS access and secret keys:
 ```
