@@ -1,9 +1,92 @@
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: DefaultVPC
 metadata:
-  name: crossplane-vpc-1
+  name: dev-vpc
 spec:
   forProvider:
     region: us-east-1
     tags:
       ManagedBy: Crossplane
+
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: InternetGateway
+metadata:
+  name: dev-igw
+spec:
+  forProvider:
+    region: us-east-1
+    tags:
+      Name: dev-igw
+      ManagedBy: Crossplane
+    vpcIdRef:
+      name: dev-vpc
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-private-us-east-1a
+  labels:
+    name: dev-private-us-east-1a
+spec:
+  forProvider:
+    availabilityZone: us-east-1a
+    cidrBlock: 10.0.0.0/19
+    region: us-east-1
+    tags:
+      Name: dev-private-us-east-1a
+      ManagedBy: Crossplane
+    vpcIdRef:
+      name: dev-vpc
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-private-us-east-1b
+  labels:
+    name: dev-private-us-east-1b
+spec:
+  forProvider:
+    availabilityZone: us-east-1b
+    cidrBlock: 10.0.32.0/19
+    region: us-east-1
+    tags:
+      Name: dev-private-us-east-1b
+      ManagedBy: Crossplane
+    vpcIdRef:
+      name: dev-vpc
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-public-us-east-1a
+  labels:
+    name: dev-public-us-east-1a
+spec:
+  forProvider:
+    availabilityZone: us-east-1a
+    cidrBlock: 10.0.64.0/19
+    region: us-east-1
+    tags:
+      Name: dev-public-us-east-1a
+      ManagedBy: Crossplane 
+    vpcIdRef:
+      name: dev-vpc
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-public-us-east-1b
+  labels:
+    name: dev-public-us-east-1b
+spec:
+  forProvider:
+    availabilityZone: us-east-1b
+    cidrBlock: 10.0.96.0/19
+    region: us-east-1
+    tags:
+      Name: dev-public-us-east-1b
+      ManagedBy: Crossplane 
+    vpcIdRef:
+      name: dev-vpc
+      
