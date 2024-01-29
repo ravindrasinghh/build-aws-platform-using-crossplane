@@ -1,6 +1,7 @@
 # 🚀 Purpose
 
 ## Build-aws-platform-using-crossplane
+![CICD](docs/crossplane-image.png)
 **Step 1:** Install Crossplane
 Add and install the Crossplane repository using the following Helm commands:
 ```
