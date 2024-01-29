@@ -67,8 +67,8 @@ Create vpc using the respective YAML files:
 kubectl apply -f vpc.yaml
 ```
 **Step8:** Create Resources
-Create rds using the respective YAML files:
+Create ec2 using the respective YAML files:
 ```
-kubectl apply -f rds.yaml
+kubectl apply -f ec2.yaml
 ```
 
