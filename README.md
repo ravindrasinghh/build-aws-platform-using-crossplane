@@ -31,7 +31,7 @@ metadata:
 spec:
   package: xpkg.upbound.io/upbound/provider-aws-s3:v0.47.1
 ```
-**Step6:** Create VPC provider to create the VPC
+**Step6:** Create Ec2 provider to create the VPC and EC2
 ```
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
